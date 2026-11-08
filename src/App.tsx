@@ -10,6 +10,7 @@ import {
   ControlsHeader,
   ControlsFooter,
   Toast,
+  Mandala,
 } from './components';
 import { useRecipient } from './hooks/useRecipient';
 import { useTheme } from './hooks/useTheme';
@@ -20,7 +21,7 @@ import { DIYA_POSITIONS, DEFAULT_WISH } from './data/mockData';
 export function App() {
   const [hasStarted, setHasStarted] = useState(false);
   const [showTapOverlay, setShowTapOverlay] = useState(true);
-  const [flashActive, setFlashActive] = useState(false);
+  // const [flashActive, setFlashActive] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
   const [toastVisible, setToastVisible] = useState(false);
 
@@ -59,9 +60,9 @@ export function App() {
       playRocketWhoosh();
     } else if (stage === 'bursting') {
       playRocketBurst();
-      setFlashActive(true);
-      const timer = setTimeout(() => setFlashActive(false), 240);
-      return () => clearTimeout(timer);
+      // setFlashActive(true);
+      // const timer = setTimeout(() => setFlashActive(false), 240);
+      // return () => clearTimeout(timer);
     }
   }, [stage, playRocketFuse, playRocketWhoosh, playRocketBurst]);
 
@@ -201,7 +202,7 @@ export function App() {
       <HillsSilhouette offsetY={hillsOffsetY} />
 
       {/* Sacred Blooming Mandala */}
-      {/* <Mandala isBlooming={isBlooming} isSettled={isSettled} /> */}
+      <Mandala className="hidden" isBlooming={isBlooming} isSettled={isSettled} />
 
       {/* Parallax Layer 2: Seamless Indian Rooftops with String Lights */}
       <RooftopsSilhouette
