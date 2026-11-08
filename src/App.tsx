@@ -7,8 +7,6 @@ import {
   RooftopsSilhouette,
   GreetingCenterpiece,
   DiyaParapet,
-  Mandala,
-  PaisleyFrame,
   ControlsHeader,
   ControlsFooter,
   Toast,

@@ -23,7 +23,7 @@ const transitionConfig: Transition = {
 export const GreetingCenterpiece: React.FC<GreetingCenterpieceProps> = ({
   recipientName,
   showRecipient,
-  showOm,
+
   showHeadline,
   showWish,
   showHint,
