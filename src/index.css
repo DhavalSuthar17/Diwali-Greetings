@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-night: #0B1026;
+  --color-gold-primary: #F5B83D;
+  --color-orange-secondary: #FF8A1F;
+  --color-text-cream: #FFF3D6;
+  --color-silhouette-dark: #060A1C;
+  --color-firework-gold: #F5B83D;
+  --color-firework-orange: #FF8A1F;
+  --color-firework-pink: #FF5CA8;
+  --color-firework-magenta: #E040C8;
+  --color-firework-green: #3DDC84;
+  --color-firework-cyan: #00F5D4;
+
+  --font-headline: "Playfair Display", serif;
+  --font-body: "Cormorant Garamond", serif;
+  --font-sacred: "Yatra One", serif;
+}
+
+:root {
+  --bg-night: #0B1026;
+  --gold-primary: #F5B83D;
+  --orange-secondary: #FF8A1F;
+  --text-cream: #FFF3D6;
+  --silhouette-dark: #060A1C;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-night);
+  color: var(--text-cream);
+  overscroll-behavior: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  font-family: var(--font-body);
+}
+
+/* Diya flame flicker */
+@keyframes authenticFlameFlicker {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 -3px 8px rgba(245, 184, 61, 0.9)) drop-shadow(0 -8px 16px rgba(255, 138, 31, 0.6));
+  }
+  25% {
+    transform: scale(1.05, 0.95) rotate(-1.5deg);
+    filter: drop-shadow(0 -4px 10px rgba(245, 184, 61, 0.95)) drop-shadow(0 -9px 20px rgba(255, 138, 31, 0.7));
+  }
+  50% {
+    transform: scale(0.96, 1.04) rotate(1deg);
+    filter: drop-shadow(0 -2px 7px rgba(245, 184, 61, 0.85)) drop-shadow(0 -7px 15px rgba(255, 138, 31, 0.55));
+  }
+  75% {
+    transform: scale(1.03, 0.97) rotate(-0.8deg);
+    filter: drop-shadow(0 -4px 11px rgba(245, 184, 61, 0.92)) drop-shadow(0 -8px 18px rgba(255, 138, 31, 0.65));
+  }
+}
+
+.diya-flame-active {
+  animation: authenticFlameFlicker 2.8s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* Rocket hover bob */
+@keyframes rocketHover {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    filter: drop-shadow(0 0 14px rgba(245, 184, 61, 0.55)) drop-shadow(0 0 26px rgba(255, 138, 31, 0.35));
+  }
+  50% {
+    transform: translateY(-8px) rotate(-1.5deg);
+    filter: drop-shadow(0 0 20px rgba(245, 184, 61, 0.85)) drop-shadow(0 0 35px rgba(255, 138, 31, 0.5));
+  }
+}
+
+.rocket-hover-anim {
+  animation: rocketHover 3.2s ease-in-out infinite;
+}
+
+/* Luminous headline */
+.luminous-headline {
+  text-shadow: 0 0 25px rgba(245, 184, 61, 0.5), 0 0 50px rgba(255, 138, 31, 0.3);
+}
+
+/* Window glow */
+@keyframes windowFlicker {
+  0%, 100% { opacity: 0.88; filter: drop-shadow(0 0 7px rgba(245, 184, 61, 0.75)); }
+  33% { opacity: 0.98; filter: drop-shadow(0 0 11px rgba(255, 138, 31, 0.9)); }
+  66% { opacity: 0.76; filter: drop-shadow(0 0 5px rgba(245, 184, 61, 0.6)); }
+}
+
+.window-glow-anim {
+  animation: windowFlicker 3.6s ease-in-out infinite;
+}
+
+/* Festoon bulb pulse */
+@keyframes festoonPulse {
+  0%, 100% {
+    opacity: 0.82;
+    filter: drop-shadow(0 0 3px currentColor) drop-shadow(0 0 7px currentColor);
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 7px currentColor) drop-shadow(0 0 15px currentColor);
+  }
+}
+
+.festoon-bulb {
+  animation: festoonPulse 2.4s ease-in-out infinite alternate;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .diya-flame-active,
+  .rocket-hover-anim,
+  .festoon-bulb,
+  .window-glow-anim {
+    animation: none !important;
+  }
+}
